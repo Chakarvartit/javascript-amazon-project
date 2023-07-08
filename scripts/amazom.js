@@ -70,19 +70,26 @@ document.querySelectorAll(".js-add-to-card")
                 if (productId === item.productId) {
                     matchingItem = item;
                 }
-                
+
             });
             if (matchingItem) {
                 matchingItem.quantity += 1;
             }
             else {
-                cart.push({ 
+                cart.push({
                     productId: productId,
                     quantity: 1,
                 });
             }
 
-            console.log(cart);
+            let cardquantity = 0;
+            cart.forEach((item) => {
+                cardquantity += item.quantity
+            })
+
+            document.querySelector(".js-cart-quantity")
+            .innerHTML=cardquantity;
+           
         });
 
     });
